@@ -1,6 +1,6 @@
 import React from 'react'
 import { doctors } from '../assets/assets'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 function TopDoctors() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function TopDoctors() {
               </div>
             ))}
         </div>
-        <button className='bg-blue-50 text-gray-600 py-3 px-12 rounded-full'>more</button>
+        <button onClick={()=>{navigate('/doctors'),scrollTo(0,0)}} className='bg-blue-50 text-gray-600 py-3 px-12 rounded-full'>more</button>
     </div>
   )
 }
