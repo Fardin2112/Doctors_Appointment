@@ -14,21 +14,11 @@ const Contact = () => {
           {/* ------------ about info -------  */}
           <div className='flex flex-col text-sm text-gray-500 gap-6 justify-center'>
             <p className='text-xl font-semibold text-gray-600'>OUR OFFICE</p>
-
-            <div>
-            <p>00000 Willms Station</p>
-            <p>Suite 000, Washington, USA</p>
-            </div>
-
-            <div>
-            <p>Tel: (000) 000-0000</p>
-            <p>Email: greatstackdev@gmail.com</p>
-            </div>
-
+            <p>00000 Willms Station<br/>Suite 000, Washington, USA</p>
+            <p>Tel: (000) 000-0000<br/>Email: greatstackdev@gmail.com</p>
             <p className='text-xl font-semibold text-gray-600'>CAREERS AT PRESCRIPTO</p>
-
             <p>Learn more about our teams and job openings.</p>
-            <button className='border w-40 py-4'>Explore Jobs</button>
+            <button className='border border-black w-40 px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
           </div>
     </div>
     </div>
