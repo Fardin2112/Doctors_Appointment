@@ -11,6 +11,6 @@ const userSchema = new mongoose.Schema({
     dob:{type:String, default:'Not selected'}
 })
 
-const userModel = mongoose.model.user || mongoose.model.('user',userSchema)
+const userModel = mongoose.model.user || mongoose.model('user',userSchema)
 
 export default userModel
