@@ -88,4 +88,24 @@ const loginAdmin = async(req,res) => {
     }
 }
 
-export { addDoctor,loginAdmin };
+// API to get all doctors list for admin panel
+const allDoctors = async(req,res) => {
+    try {
+        const alldoc = await doctorModel.find({}).select('-password');
+
+         // If there are no doctors in the database
+        if (!alldoc && alldoc.length === 0){
+           return res.status(404).json({success:false,message:'No doctors found'})
+        }
+
+        // Return the doctor data in the response
+        res.status(200).json({ success: true, data: alldoc });
+
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success:false, message:error.message});
+    }
+}
+
+export { addDoctor,loginAdmin, allDoctors };
