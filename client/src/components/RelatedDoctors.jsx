@@ -16,7 +16,7 @@ function RelatedDoctors({speciality,docId}) {
       } else {
           console.log("load")
       }
-    },[doctors,relDoc,speciality])
+    },[doctors,speciality,docId])
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
     <h1 className='text-3xl font-medium'>Top Doctors to Book</h1>
