@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Appointment = () => {
   const { docId } = useParams();
-  const { doctors, backendUrl, token, getDoctorsData } = useContext(AppContext);
+  const { doctors, backendUrl, token, getDoctorData } = useContext(AppContext);
   const dayOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Appointment = () => {
 
   const getAvailableSlots = async () => {
     if (!docInfo || !docInfo.slots_booked) {
-      console.warn("docInfo or slots_booked is undefined.");
+      //console.warn("docInfo or slots_booked is undefined.");
       return; // Wait until docInfo is properly fetched
     }
     setDocSlots([]);
@@ -71,7 +71,6 @@ const Appointment = () => {
         const slotTime = formattedTime
 
         const isSlotAvailable = docInfo.slots_booked[slotDate] && docInfo.slots_booked[slotDate].includes(slotTime) ? false : true
-        console.log(isSlotAvailable)
         if (isSlotAvailable) {
           // add slot to array
         timeSlots.push({
@@ -121,7 +120,7 @@ const Appointment = () => {
       );
       if (data.success) {
         toast.success(data.message);
-        getDoctorsData();
+        getDoctorData();
         navigate("/my-appointments");
       } else {
         console.log(data.message)

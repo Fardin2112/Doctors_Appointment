@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const MyAppointment = () => {
-  const {backendUrl, token} = useContext(AppContext)
+  const {backendUrl, token, getDoctorData} = useContext(AppContext)
   const [appointments, setAppointments] = useState()
 
   const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
@@ -37,6 +37,7 @@ const MyAppointment = () => {
       if (data.success){
         toast.success(data.message)
         listAppointment()
+        getDoctorData()
       } else {
         toast.error(data.message)
       }
