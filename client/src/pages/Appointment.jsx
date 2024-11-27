@@ -22,7 +22,6 @@ const Appointment = () => {
     const docInfo = doctors.find((doc) => doc._id === docId);
     setDocInfo(docInfo);
   };
-  console.log('ck3',docInfo)
 
   const getAvailableSlots = async () => {
     if (!docInfo || !docInfo.slots_booked) {
@@ -106,7 +105,6 @@ const Appointment = () => {
       let year = date.getFullYear();
 
       const slotDate = day+"_"+ month+"_"+year;
-      console.log(slotDate)
 
       const { data } = await axios.post(
         backendUrl + "/api/user/book-appointment",

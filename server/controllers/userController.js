@@ -167,4 +167,54 @@ const bookAppointment = async (req,res) => {
   }
 }
 
-export { registerUser, loginuser, getProfile, updateProfile, bookAppointment };
+// APu to get user appointment for frontend my appointment page
+const listAppointment = async(req,res) => {
+
+  try {
+    const {userId} = req.body
+    const appointment = await appointmentModel.find({userId})
+
+    res.json({success:true, appointment})
+  } catch (error) {
+    console.log(error);
+    return res.json({ success: false, message: error.message });
+  }
+} 
+
+// API to cancel Appointment
+
+const cancelAppointment = async(req,res) => {
+
+  try {
+    const {userId, appointmentId} = req.body
+
+    const appointmentData = await appointmentModel.findById(appointmentId)
+
+    // verify appointment user
+    if (appointmentData.userId != userId){
+      return res.json({success:false, message:'Unauthorize action'})
+    }
+
+    await appointmentModel.findByIdAndUpdate(appointmentId,{cancelled:true})
+
+    // releasing doctor slot
+
+    const {docId, slotDate, slotTime} = appointmentData
+
+    const doctorData = await doctorModel.findById(docId)
+
+    let slots_booked = doctorData.slots_booked
+
+    slots_booked[slotDate] = slots_booked[slotDate].filter(e =>  e !== slotTime)
+
+    await doctorModel.findByIdAndUpdate(docId, {slots_booked})
+
+    res.json({success:true, message:'Appointment Cancelled'})
+
+  } catch (error) {
+    console.log(error);
+    return res.json({ success: false, message: error.message });
+  }
+}
+
+export { registerUser, loginuser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment };
