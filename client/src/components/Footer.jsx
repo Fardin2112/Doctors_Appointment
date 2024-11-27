@@ -1,7 +1,11 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="md:mx-10">
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 mt-40 text-sm">
@@ -17,7 +21,8 @@ function Footer() {
             <li className="">Home</li>
             <li>About us</li>
             <li>Delivery</li>
-            <li>Privacy policy</li>
+            <li onClick={()=> navigate('/privacy-policy')}>Privacy policy</li>
+            <li onClick={()=> navigate('/term-condition')}>Term & Condition</li>
         </ul>
         </div>
         {/* -------- right side --------- */}

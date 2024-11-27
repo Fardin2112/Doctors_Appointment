@@ -218,10 +218,10 @@ const cancelAppointment = async(req,res) => {
   }
 }
 
-const razorpayInstance = new razorpay({
-    key_id:'',
-    key_secret:''
-})
+// const razorpayInstance = new razorpay({
+//     key_id:'',
+//     key_secret:''
+// })
 
 // make payment of appointment fees using razorpay
 const paymnetRazorpay = async(req,res) => {

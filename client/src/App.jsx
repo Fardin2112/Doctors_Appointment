@@ -12,6 +12,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermCondition from './pages/TermCondition'
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
         <Route path='/appointment/:docId' element={<Appointment/>}/>
         <Route path='/my-profile' element={<Myprofile/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+        <Route path='term-condition' element={<TermCondition/>}/>
       </Routes>
       <Footer/>
     </div>
