@@ -14,7 +14,7 @@ const doctorSchema = new mongoose.Schema({
     address:{type:Object, required:true},
     date:{type:Number, required:true},
     degree:{type:String, required:true},
-    slots_Booked:{type:Object, default:{}},
+    slots_booked:{type:Object, default:{}},
 },{minimize:false}) // minimize:false used because we used slots_Booked default empty , if make empty schema then we have to used 
 
 const doctorModel = mongoose.models.doctor || mongoose.model('doctor',doctorSchema)

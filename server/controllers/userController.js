@@ -121,6 +121,7 @@ const bookAppointment = async (req,res) => {
     const {userId, docId, slotDate, slotTime } = req.body
 
     const docData = await doctorModel.findById(docId).select('-password')
+    console.log('ck2',docData)
 
     if (!docData.available) {
       return res.json({success:false, message:'Doctor not available'})
@@ -129,7 +130,7 @@ const bookAppointment = async (req,res) => {
 
     //checking for slot availablity
     if (slots_booked[slotDate]) {
-      if (slots_booked[slotDate].includes(slotDate)) {
+      if (slots_booked[slotDate].includes(slotTime)) {
         return res.json({success:false, message:'Slot not available'})
       } else {
         slots_booked[slotDate].push(slotTime)
@@ -151,7 +152,7 @@ const bookAppointment = async (req,res) => {
       amount : docData.fees,
       slotTime,
       slotDate,
-      date : Data.now()
+      date : Date.now()
     }
     const newApppointment = new appointmentModel(appointmentData)
     await newApppointment.save()
