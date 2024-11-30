@@ -1,9 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const MyAppointment = () => {
+
+  const navigate = useNavigate()
+
   const {backendUrl, token, getDoctorData} = useContext(AppContext)
   const [appointments, setAppointments] = useState()
 
@@ -47,6 +51,55 @@ const MyAppointment = () => {
     }
   }
 
+  const initPay = (order) => {
+    console.log("order",order)
+    const options = {
+      key : import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount : order.amount,
+      currency : order.currency,
+      name : 'Appointment Payment',
+      description : 'Appointment Payemnt',
+      order_id : order.id,
+      receipt : order.receipt,
+      handler : async(responce) => {
+       // console.log(responce);
+        try {
+          const {data} = await axios.post(backendUrl+'/api/user/verifyRazorpay',responce,{headers:{token}})
+          if (data.success){
+            console.log("af order",order)
+            listAppointment()
+            navigate('/my-appointments ')
+          } else {
+            toast.error(data.message)
+            console.log(data.message);
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error(error.message)
+        }
+      } 
+    }
+    const rzp = new window.Razorpay(options)
+    rzp.open()
+   
+  }
+
+// razor pay logic
+const appointmentRazorpay =async (appointmentId) => {
+    try {
+      const {data} = await axios.post(backendUrl + '/api/user/payment-razorpay',{appointmentId},{headers:{token}})
+
+      if (data.success) {
+        initPay(data.order)
+      } else {
+        toast.error(data.message)
+        console.log(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+      console.log(error)
+    }
+} 
 
   useEffect(()=>{
     listAppointment()
@@ -74,7 +127,8 @@ const MyAppointment = () => {
                 <div></div>
                 {/* ---- button ---- */}
                 <div className='flex flex-col justify-end gap-2'>
-                  {!item.cancelled && <button className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300'>pay online</button>}
+                  {!item.cancelled && item.payment && <button className='sm:min-w-48 py-2 rounded text-stone-500 bg-indigo-50'>Paid</button>}
+                  {!item.cancelled && !item.payment && <button onClick={()=>appointmentRazorpay(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300'>pay online</button>}
                   {!item.cancelled && <button onClick={()=>cancelAppointmnet(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded  hover:bg-red-600 hover:text-white transition-all duration-300'>cancel appointment</button>}
                   {item.cancelled && <button className='text-sm text-white text-center sm:min-w-48 py-2 border rounded  bg-red-600'>Appointment Cancelled</button>}
                 </div>
