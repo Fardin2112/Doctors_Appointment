@@ -126,7 +126,7 @@ const bookAppointment = async (req,res) => {
 
     if (!docData.available) {
       return res.json({success:false, message:'Doctor not available'})
-    }
+    }k
     let slots_booked = docData.slots_booked
 
     //checking for slot availablity
@@ -230,7 +230,6 @@ const paymentRazorpay = async (req,res) => {
     try {
       const {appointmentId} = req.body
       const appointmentData = await appointmentModel.findById(appointmentId)
-      console.log("app data",appointmentData)
   
       if (!appointmentData || appointmentData.cancelled) {
         return res.json({success:false, message:"Appointment Cancelled or not found"})
@@ -245,7 +244,6 @@ const paymentRazorpay = async (req,res) => {
       // creation of an order 
       try {
         const order = await razorpayInstance.orders.create(options);
-        console.log("this is :", order)
         res.json({ success: true, order });
       } catch (error) {
         console.error("Razorpay Error:", error);
@@ -262,9 +260,9 @@ const paymentRazorpay = async (req,res) => {
 const verifyRazorpay = async(req,res) => {
     try {
       const {razorpay_order_id} = req.body
-      console.log("ck1",razorpay_order_id)
+      //console.log("ck1",razorpay_order_id)
       const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
-      console.log("verify order",orderInfo);
+      //console.log("verify order",orderInfo);
       if (orderInfo.status === "paid"){
         await appointmentModel.findByIdAndUpdate(orderInfo.receipt,{payment:true})
         res.json({success:true,message:"Payment Successful"})
