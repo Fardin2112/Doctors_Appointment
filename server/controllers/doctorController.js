@@ -105,6 +105,71 @@ const appointmentCancel = async (req,res) => {
         res.json({success:false,message:error.message}) 
     }
 }
-// 
+// API to get dashboard data for doctor panel 
+const  doctorDashboard = async (req,res) => {
+    try {
+        const appointments = await appointmentModel.find({docId})
+        let earning = 0 ;
 
-export {changeAvailablity,doctorList, logingDoctor, appointmentsDoctor, appointmentComplete, appointmentCancel}
+        appointments.map((item)=>{
+            if (item.isCompleted || item.payment){
+                earning += item.amount
+            }
+        })
+        let patients = []
+        appointments.map((item)=>{
+            if ( ! patients.includes(item.userId)){
+                patients.push(item.userId)
+            }
+        })
+        const dashData = {
+            earning,
+            appointments : appointments.length,
+            patients : patients.length,
+            latestAppointments : appointments.reverse().slice(0,5) 
+        }
+        res.json({success:true, dashData})
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.message})
+    }
+}
+
+// API to get doctorprofile for doctor panel
+const doctorProfile = async (req, res) => {
+    try {
+        const {docId} = req.body
+
+        const profile = await doctorModel.findById(docId).select('-password')
+
+        res.json({success:true,profile})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.message})
+    }
+}
+// API to update doctor Profile data from doctor panel
+const updateDoctorProfile = async (req,res) => {
+    try {
+        const {docId,fees, address, available} = req.body
+
+        await doctorModel.findByIdAndUpdate(docId,{fees, address, available })
+        res.json({success:true,message:"Profile updated"})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.message})
+    }
+}
+
+export {changeAvailablity,
+        doctorList,
+        logingDoctor,
+        appointmentsDoctor,
+        appointmentComplete, 
+        appointmentCancel, 
+        doctorDashboard,
+        doctorProfile,
+        updateDoctorProfile,
+    }
