@@ -11,7 +11,7 @@ const About = () => {
 
         <div className='my-10 flex flex-col md:flex-row gap-12'>
           {/* --------- img -------- */}
-          <img className='w-full md:max-w-[360px]' src={assets.about_image} alt="" />
+          <img className='w-full md:max-w-[360px]' src={assets.hospitalimg} alt="" />
           {/* ------------ about info -------  */}
           <div className='flex flex-col text-sm text-gray-600 md:w-2/4 gap-6 justify-center'>
               <p>

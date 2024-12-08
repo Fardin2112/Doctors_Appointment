@@ -36,9 +36,17 @@ import General_physician from './General_physician.svg'
 import Gynecologist from './Gynecologist.svg'
 import Neurologist from './Neurologist.svg'
 import Pediatricians from './Pediatricians.svg'
+import frame2 from './Frame2.png'
+import headerlogo from './image17.png'
+import vector from './Vector.png'
+import hospitalimg from './hospital.png'
 
 
 export const assets = {
+    hospitalimg,
+    vector,
+    headerlogo,
+    frame2,
     appointment_img,
     header_img,
     group_profiles,
