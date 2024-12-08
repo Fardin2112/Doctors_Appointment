@@ -26,9 +26,9 @@ function RelatedDoctors({speciality,docId}) {
           <div onClick={()=>{navigate(`/appointment/${item._id}`);scrollTo(0,0)}} key={index} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'>
             <img className='bg-blue-50' src={item.image} alt="" />
             <div className='p-4'>
-            <span className='flex items-center gap-2 text-green-500 text-sm'>
-              <p className='w-2 h-2 bg-green-500 rounded-full'></p><p>Available</p>
-            </span>
+            <span className={`flex items-center gap-2 ${item.available ? 'text-green-500':'text-gray-500'}  text-sm`}>
+                  <p className={`w-2 h-2 ${item.available ? 'bg-green-500':'bg-gray-500'}  rounded-full`}></p><p>{item.available ?'Available': 'Not Available'}</p>
+                </span>
             <p className='text-gray-900 text-lg font-medium'>{item.name}</p>
             <p className='text-gray-600 text-sm '>{item.speciality}</p>
             </div>
