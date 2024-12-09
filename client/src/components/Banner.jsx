@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext';
 
 function Banner() {
     const navigate = useNavigate();
+    const {token,userData} = useContext(AppContext)
   return (
     <div className='flex flex-col md:flex-row bg-primary px-6 md:px-14 lg:px-12 rounded-md my-10 md:mx-10'>
         {/* ------- left side------ */}
@@ -12,7 +14,11 @@ function Banner() {
             <p className=' '>Book Appointment</p>
              <p className='mt-4'>With 100+ Trusted Doctors</p>
              </div>
-            <button onClick={()=>{navigate('/login');scrollTo(0,0)}} className='bg-white px-8 py-3 mt-6 hover:scale-105 transition-all w-44 rounded-full text-gray-700 text-sm md:text-md md:font-semibold'>Create account</button>
+             { (token && userData) 
+              ? <button onClick={()=>{navigate('/doctors');scrollTo(0,0)}} className='bg-white px-8 py-3 mt-6 hover:scale-105 transition-all w-44 rounded-full text-gray-700 text-sm md:text-md md:font-semibold'>Explore doctors</button>
+              : <button onClick={()=>{navigate('/login');scrollTo(0,0)}} className='bg-white px-8 py-3 mt-6 hover:scale-105 transition-all w-44 rounded-full text-gray-700 text-sm md:text-md md:font-semibold'>Create account</button>
+               }
+            
         </div>
         {/* ------- right side -------- */}
         <div className='hidden md:block md:w-1/2 lg:w-[370px] relative'>

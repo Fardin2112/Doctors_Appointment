@@ -40,9 +40,11 @@ import frame2 from './Frame2.png'
 import headerlogo from './image17.png'
 import vector from './Vector.png'
 import hospitalimg from './hospital.png'
+import groupdoctor from './groupdoctor.png'
 
 
 export const assets = {
+    groupdoctor,
     hospitalimg,
     vector,
     headerlogo,

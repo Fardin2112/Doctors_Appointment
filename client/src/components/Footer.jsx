@@ -12,17 +12,17 @@ function Footer() {
         {/* ------ left side ---- */}
         <div className="w-full">
           <img className="mb-5 w-52" src={assets.frame2} alt="" />
-          <p className="w-full md:w-2/3 text-gray-600 leading-6">At our hospital, we are dedicated to providing exceptional medical care to our patients and their families. Our experienced team of medical professionals, cutting-edge technology, and compassionate approach make us a leader in the healthcare industry</p>
+          <p className="w-full md:w-2/3 text-gray-600 leading-6">Healthcare is your trusted partner for managing doctor appointments seamlessly. We provide an easy-to-use platform to book consultations, access healthcare services, and ensure your well-being with just a few clicks.</p>
         </div>
         {/* ----- center side ------- */}
         <div>
         <h2 className="text-xl font-semibold">COMPANY</h2>
         <ul className="flex flex-col pt-5 gap-2 text-gray-600">
-            <li className="">Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li onClick={()=> navigate('/privacy-policy')}>Privacy policy</li>
-            <li onClick={()=> navigate('/term-condition')}>Term & Condition</li>
+            <li onClick={()=>navigate('/')} className="hover:cursor-pointer">Home</li>
+            <li onClick={()=>navigate('/about')} className="hover:cursor-pointer">About us</li>
+            <li onClick={()=>navigate('/contact')} className="hover:cursor-pointer">Contact us</li>
+            <li onClick={()=> navigate('/privacy-policy')} className="hover:cursor-pointer">Privacy policy</li>
+            <li onClick={()=> navigate('/term-condition')} className="hover:cursor-pointer">Term & Condition</li>
         </ul>
         </div>
         {/* -------- right side --------- */}
@@ -35,7 +35,7 @@ function Footer() {
       
       <div className="mt-8">
       <hr className=""/>
-      <p className="text-sm py-5 text-center">Copyright 2024 @ Greatstack.dev - All Right Reserved.</p>
+      <p className="text-sm py-5 text-center">Copyright 2024 @ Healthcare - All Right Reserved.</p>
       </div>
     </div>
   );

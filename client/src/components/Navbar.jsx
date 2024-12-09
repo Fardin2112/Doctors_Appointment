@@ -34,6 +34,10 @@ const Navbar = () => {
           <li className="py-1">CONTACT</li>
           <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
+        <NavLink to="/term-condition ">
+          <li className="py-1">TERM & CONDITION</li>
+          <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
+        </NavLink>
       </ul>
       <div className="flex items-center gap-4">
         {token && userData ? (
@@ -60,7 +64,7 @@ const Navbar = () => {
         {/* {------- mobile menu ----------} */}
         <div className={`${showMenu ? 'fixed w-[90%]':'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}>
           <div className="flex items-center justify-between px-5  py-6">
-            <img className="w-36" src={assets.logo} alt="" />
+            <img className="w-44" src={assets.frame2} alt="" />
             <img className="w-7" onClick={()=>setShowMenu(false)} src={assets.cross_icon} alt="" />
           </div>
           <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
@@ -68,6 +72,7 @@ const Navbar = () => {
               <NavLink  onClick={()=>setShowMenu(false)} to='/doctors'><p className='px-4 py-2 rounded inline-block'>ALL DOCTORS</p></NavLink>
               <NavLink  onClick={()=>setShowMenu(false)} to='/about'><p className='px-4 py-2 rounded inline-block'>ABOUT</p></NavLink>
               <NavLink  className='px-4 py-2 rounded inline-block' onClick={()=>setShowMenu(false)} to='/contact'><p className='px-4 py-2 rounded inline-block'>CONTACT</p></NavLink>
+              <NavLink  onClick={()=>setShowMenu(false)} to='/tarm-conditioin'><p className='px-4 py-2 rounded inline-block'>TERM & CONDITION</p></NavLink>
           </ul>
         </div>
       </div>
