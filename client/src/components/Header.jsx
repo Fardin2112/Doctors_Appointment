@@ -21,7 +21,7 @@ function Header() {
         </div>
         {/* ----  Right Side ---- */}
         <div className='md:w-1/2 relative flex justify-center items-center'>
-            <img className='w-full  md:absolute h-auto rounded-lg' src={assets.groupdoctor} alt="" />
+            <img className='w-full  md:absolute h-[auto] rounded-lg' src={assets.groupdoctor} alt="" />
         </div>
     </div>
   )
