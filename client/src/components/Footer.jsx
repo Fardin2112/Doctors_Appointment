@@ -18,11 +18,11 @@ function Footer() {
         <div>
         <h2 className="text-xl font-semibold">COMPANY</h2>
         <ul className="flex flex-col pt-5 gap-2 text-gray-600">
-            <li onClick={()=>navigate('/')} className="hover:cursor-pointer">Home</li>
-            <li onClick={()=>navigate('/about')} className="hover:cursor-pointer">About us</li>
-            <li onClick={()=>navigate('/contact')} className="hover:cursor-pointer">Contact us</li>
-            <li onClick={()=> navigate('/privacy-policy')} className="hover:cursor-pointer">Privacy policy</li>
-            <li onClick={()=> navigate('/term-condition')} className="hover:cursor-pointer">Term & Condition</li>
+            <li onClick={()=>{navigate('/'); scrollTo(0,0)}} className="hover:cursor-pointer">Home</li>
+            <li onClick={()=>{navigate('/about');scrollTo(0,0)}} className="hover:cursor-pointer">About us</li>
+            <li onClick={()=>{navigate('/contact');scrollTo(0,0)}} className="hover:cursor-pointer">Contact us</li>
+            <li onClick={()=> {navigate('/privacy-policy');scrollTo(0,0)}} className="hover:cursor-pointer">Privacy policy</li>
+            <li onClick={()=> {navigate('/term-condition');scrollTo(0,0)}} className="hover:cursor-pointer">Term & Condition</li>
         </ul>
         </div>
         {/* -------- right side --------- */}
