@@ -9,7 +9,7 @@ function TermCondition() {
         <h1 className="text-3xl font-bold mb-4 text-center">Terms and Conditions</h1>
 
         <p className="text-gray-700 mb-4">
-          Welcome to <strong>Prescripto</strong>. By accessing or using our platform, you agree to comply with the terms and conditions outlined below. Please read them carefully.
+          Welcome to <strong>Healthcare</strong>. By accessing or using our platform, you agree to comply with the terms and conditions outlined below. Please read them carefully.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">1. Acceptance of Terms</h2>
@@ -26,13 +26,13 @@ function TermCondition() {
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">3. Appointment Booking</h2>
         <p className="text-gray-700 mb-4">
-          While we strive to ensure availability, appointment booking is subject to the availability of doctors and their schedules. Prescripto is not responsible for cancellations or rescheduling by doctors.
+          While we strive to ensure availability, appointment booking is subject to the availability of doctors and their schedules. Healthcare is not responsible for cancellations or rescheduling by doctors.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">4. Payments</h2>
         <ul className="list-disc pl-5 text-gray-700 mb-4">
           <li>All payments are processed securely via <strong>Razorpay</strong> or <strong>Stripe</strong>.</li>
-          <li>Prescripto does not store your payment details.</li>
+          <li>Healthcare does not store your payment details.</li>
           <li>Refunds and cancellations are subject to the doctor’s policy.</li>
         </ul>
 
@@ -43,7 +43,7 @@ function TermCondition() {
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">6. Limitations of Liability</h2>
         <p className="text-gray-700 mb-4">
-          Prescripto is not liable for any medical outcomes or delays caused by technical issues or third-party services.
+          Healthcare is not liable for any medical outcomes or delays caused by technical issues or third-party services.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">7. Changes to Terms</h2>
@@ -66,7 +66,7 @@ function TermCondition() {
         </ul>
 
         <p className="text-gray-700 text-center mt-6">
-          By using <strong>Prescripto</strong>, you agree to these Terms and Conditions.
+          By using <strong>Healthcare</strong>, you agree to these Terms and Conditions.
         </p>
       </div>
     </div>

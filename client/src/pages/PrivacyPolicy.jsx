@@ -5,13 +5,13 @@ const PrivacyPolicy = () => {
   return (
     <div className="bg-gray-100 p-6 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Privacy Policy for Prescripto</h1>
+        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Privacy Policy for Healthcare</h1>
         <p className="text-sm text-gray-600 mb-8">Effective Date: 28-11-2024</p>
 
         <section className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Information We Collect</h2>
           <p className="text-gray-700 mb-4">
-            When you register and use <strong>Prescripto</strong>, we may collect the following information:
+            When you register and use <strong>Healthcare</strong>, we may collect the following information:
           </p>
           <ul className="list-disc list-inside text-gray-700">
             <li><strong>During Registration:</strong> Full Name, Email Address</li>
@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
         <section className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">5. Notifications</h2>
           <p className="text-gray-700">
-            Currently, <strong>Prescripto</strong> does not send notifications. However, we plan to introduce this feature in the future.
+            Currently, <strong>Healthcare</strong> does not send notifications. However, we plan to introduce this feature in the future.
           </p>
         </section>
 
@@ -73,7 +73,7 @@ const PrivacyPolicy = () => {
         <section className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">7. Payment Security</h2>
           <p className="text-gray-700">
-            All payments are securely processed through <strong>Razorpay</strong> or <strong>Stripe</strong>, complying with industry standards. <strong>Prescripto</strong> does not store card details or sensitive payment information.
+            All payments are securely processed through <strong>Razorpay</strong> or <strong>Stripe</strong>, complying with industry standards. <strong>Healthcare</strong> does not store card details or sensitive payment information.
           </p>
         </section>
 
@@ -96,7 +96,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <p className="text-gray-700 text-center mt-6">
-          By using <strong>Prescripto</strong>, you agree to the terms outlined in this Privacy Policy. Thank you for trusting us with your healthcare needs!
+          By using <strong>Healthcare</strong>, you agree to the terms outlined in this Privacy Policy. Thank you for trusting us with your healthcare needs!
         </p>
       </div>
     </div>

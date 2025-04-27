@@ -71,7 +71,7 @@ const Navbar = () => {
               <NavLink  onClick={()=>setShowMenu(false)} to='/'><p className='px-4 py-2 rounded inline-block'>HOME</p></NavLink>
               <NavLink  onClick={()=>setShowMenu(false)} to='/doctors'><p className='px-4 py-2 rounded inline-block'>ALL DOCTORS</p></NavLink>
               <NavLink  onClick={()=>setShowMenu(false)} to='/about'><p className='px-4 py-2 rounded inline-block'>ABOUT</p></NavLink>
-              <NavLink  className='px-4 py-2 rounded inline-block' onClick={()=>setShowMenu(false)} to='/contact'><p className='px-4 py-2 rounded inline-block'>CONTACT</p></NavLink>
+              <NavLink  onClick={()=>setShowMenu(false)} to='/contact'><p className='px-4 py-2 rounded inline-block'>CONTACT</p></NavLink>
               <NavLink  onClick={()=>setShowMenu(false)} to='/tarm-conditioin'><p className='px-4 py-2 rounded inline-block'>TERM & CONDITION</p></NavLink>
           </ul>
         </div>
